@@ -9,7 +9,7 @@ envs/curobo
 *.zip
 viewer_show.*
 eval_video/
-task_config/
+# Assignment task configurations are source files and are versioned.
 **/.DS_Store
 
 # eval result
