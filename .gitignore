@@ -1,0 +1,34 @@
+# Operating-system and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Local scratch files
+tmp/
+__pycache__/
+*.py[cod]
+
+# Large supplied datasets and split archives (store these on the training server)
+*.tar
+*.tar.gz
+*.tar.gz.*
+*.part
+*.zarr/
+
+# Generated RoboTwin data, videos, checkpoints, and experiment logs
+Assignment4/data/beat_block_hammer/
+Assignment4/eval_result/
+Assignment4/policy/*/checkpoints/
+Assignment4/policy/*/data/outputs/
+Assignment4/policy/*/wandb/
+wandb/
+
+# Downloaded robot/object assets are regenerated from the course package, not Git
+Assignment4/assets/embodiments/
+Assignment4_delta/assets/embodiments/
+Assignment4_delta/assets/objects/
+
+# Environment-specific files and secrets
+.env
+.env.*
+*.log
