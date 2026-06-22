@@ -13,8 +13,20 @@ from diffusion_policy.env_runner.dp_runner import DPRunner
 
 class DP:
 
-    def __init__(self, ckpt_file: str, n_obs_steps, n_action_steps, use_ema=True, inference_seed=None):
+    def __init__(
+        self,
+        ckpt_file: str,
+        n_obs_steps,
+        n_action_steps,
+        use_ema=True,
+        inference_seed=None,
+        num_inference_steps=None,
+    ):
         self.policy = self.get_policy(ckpt_file, None, "cuda:0", use_ema=use_ema)
+        if num_inference_steps is not None:
+            if int(num_inference_steps) < 1:
+                raise ValueError("num_inference_steps must be positive")
+            self.policy.num_inference_steps = int(num_inference_steps)
         self.expected_obs_keys = dict(self.policy.obs_encoder.key_shape_map)
         self.runner = DPRunner(n_obs_steps=n_obs_steps, n_action_steps=n_action_steps)
         self.inference_seed = inference_seed

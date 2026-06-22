@@ -68,6 +68,7 @@ def get_model(usr_args):
         n_action_steps=n_action_steps,
         use_ema=parse_bool(usr_args.get("use_ema", True)),
         inference_seed=usr_args.get("policy_inference_seed", None),
+        num_inference_steps=usr_args.get("num_inference_steps", None),
     )
 
 
